@@ -1,0 +1,44 @@
+int green=6;
+int red=7;
+int yellow=8;
+int pedestrian=5;
+int button=4;
+bool pedestrianwaiting=false;
+void setup()
+{
+  pinMode(green,OUTPUT);
+  pinMode(red,OUTPUT);
+  pinMode(yellow,OUTPUT);
+  pinMode(pedestrian,OUTPUT);
+  pinMode(button,INPUT_PULLUP);
+}
+void loop()
+{
+  if(digitalRead(button)==LOW)
+  {
+    pedestrianwaiting=true;
+  }
+  if(pedestrianwaiting)
+  {
+    delay(1000);
+    digitalWrite(red,HIGH);
+    digitalWrite(yellow,LOW);
+    digitalWrite(green,LOW);
+    digitalWrite(pedestrian,HIGH);
+    delay(3000);
+    digitalWrite(pedestrian,LOW);
+    pedestrianwaiting=false;
+  }
+  digitalWrite(red,HIGH);
+  delay(3000);
+  digitalWrite(yellow,HIGH);
+  delay(2000);
+  digitalWrite(red,LOW);
+  delay(1000);
+  digitalWrite(yellow,LOW);
+  delay(1000);
+  digitalWrite(green,HIGH);
+  delay(3000);
+  digitalWrite(green,LOW);
+  delay(1000);
+}
