@@ -1,0 +1,19 @@
+int led=8;
+int button=2;
+void setup() {
+pinMode(led,OUTPUT);
+pinMode(button,INPUT_PULLUP);
+Serial.begin(9600);
+}
+
+void loop() {
+  int state=digitalRead(button);
+  Serial.println(state);
+  if(state==HIGH)
+  {
+    digitalWrite(led,HIGH);
+  }
+  else
+  {
+    digitalWrite(led,LOW);
+  }
